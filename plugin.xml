@@ -10,9 +10,9 @@
     <platform name="ios">
 
         <config-file target="config.xml" parent="/*">
-		<feature name="DatePicker">
-			<param name="ios-package" value="DatePicker"/>
-		</feature>
+			<feature name="DatePicker">
+				<param name="ios-package" value="DatePicker"/>
+			</feature>
         </config-file>
 
         <js-module src="www/DatePicker.js" name="DatePicker">
@@ -21,6 +21,27 @@
 
 	   <header-file src="src/ios/DatePicker.h" />
 	   <source-file src="src/ios/DatePicker.m" />
+
+    </platform>
+
+        <!-- android -->
+    <platform name="android">
+
+		<source-file src="src/android/DatePickerPlugin.java" target-dir="src/com/phonegap/plugins/" />
+
+		<js-module src="www/datePickerPlugin.js" name="DatePicker">
+            <clobbers target="datePicker" />
+        </js-module>
+
+         <config-file target="res/xml/plugins.xml" parent="/plugins">
+            <plugin name="Datepicker" value="com.phonegap.plugins.DatePickerPlugin"/>
+        </config-file>
+
+       	 <config-file target="res/xml/config.xml" parent="/*">
+		     <feature name="Datepicker">
+		         <param name="android-package" value="com.phonegap.plugins.DatePickerPlugin"/>
+		     </feature>  
+		 </config-file>
 
     </platform>
 
